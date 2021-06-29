@@ -1,0 +1,57 @@
+CR1	- 
+	OFFSET : 0X00
+	RESET VALUE : 0X00
+
+	BIT7
+
+		CLOCK STRETCHING DISABLE(SLAVE MODE)
+
+		SLAVE MODE 일때 ADDR이나 BTF FLAG가 세워졌을때 소프트웨어 에 의해 리셋될때 까지 LOW를 유지함
+		0 : CLOCK STRETCHING ENABLE
+		1 : CLOCK STRETCHING DISABLE
+
+	BIT6
+
+		GENEREAL CALL ENABLE
+
+		0 : GENEREAL CAL ENABLE, Address 0X00 is NACKed.
+		1 : GENEREAL CAL DISABLE, Address 0X00 is ACKed.
+
+
+	BIT 5:1
+
+		BIT 0
+
+			PE : peripheral enable
+
+			0 : peripheral disable
+
+			1 : peripheral enable
+
+			통신이 진행되는 동안 이 BIT가 재설정되면 현재 통신이 끝날 때 주변 장치가 비활성화됩니다.
+			PE=0으로 인한 모든 비트 리셋은 통신 종료 시 발생합니다.
+
+CR2 -
+
+	BIT7 : SOFTWARE RESET
+
+		0 :  I2C peripheral NOT AT RESET STATE
+
+	  	1   I2C peripheral NOT AT RESET STATE
+
+	  	정지 조건이 감지 되지 않았을 때 BUSY 비트가 1로 설정시 사용가능 
+
+	BIT6:4 RESERVED
+
+	BIT3 ACK POSITION
+
+		이 BIT는 소프트웨어로설정, 삭제 되고 PE가 0일때 하드웨어로 삭제된다.
+
+		0: ACK bit controls the (N)ACK of the current byte being received in the shift register.
+		1: ACK bit controls the (N)ACK of the next byte which will be received in the shift register.
+
+
+
+
+
+
